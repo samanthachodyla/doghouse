@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="description" content="The Dog House — New Orleans' off-leash dog park and bar in Mid-City. Craft cocktails, pub grub, and a fenced yard for registered pups. 2736 Banks St.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
+<title>The Dog House NOLA</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,SOFT,wght@9..144,100,500;9..144,100,650&family=Hanken+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --paper:#FBFAF4;
+    --paper-2:#F1EFE3;
+    --ink:#17251C;
+    --ink-soft:#4A5A4E;
+    --green:#1F4D38;
+    --green-deep:#173B2B;
+    --ball:#D95336;
+    --ball-ink:#FFF6EA;
+    --line:#DCD9C6;
+    --card:#FFFFFF;
+    --frame:#E9E6D6;
+    --shadow:0 1px 2px rgba(23,37,28,.06), 0 8px 24px rgba(23,37,28,.07);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#12211A;
+      --paper-2:#0D1913;
+      --ink:#F2F0E1;
+      --ink-soft:#A9B8A9;
+      --green:#8FC7A6;
+      --green-deep:#0D1913;
+      --ball:#E4643F;
+      --ball-ink:#12211A;
+      --line:#2A3B30;
+      --card:#182B21;
+      --frame:#1D3227;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#12211A;
+    --paper-2:#0D1913;
+    --ink:#F2F0E1;
+    --ink-soft:#A9B8A9;
+    --green:#8FC7A6;
+    --green-deep:#0D1913;
+    --ball:#E4643F;
+    --ball-ink:#12211A;
+    --line:#2A3B30;
+    --card:#182B21;
+    --frame:#1D3227;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+    font-size:16.5px; line-height:1.6;
+    margin:0;
+  }
+  .wrap{max-width:1080px; margin-inline:auto; padding-inline:20px}
+  h1,h2,h3{font-family:"Fraunces", Georgia, serif; font-weight:650; line-height:1.08; text-wrap:balance; margin:0}
+  .eyebrow{
+    font-family:"IBM Plex Mono", monospace; font-size:.72rem; font-weight:500;
+    letter-spacing:.14em; text-transform:uppercase; color:var(--green);
+  }
+  a{color:var(--green)}
+  a:focus-visible, button:focus-visible{outline:3px solid var(--ball); outline-offset:2px}
+
+  /* ---------- header ---------- */
+  header{border-bottom:1px solid var(--line); background:var(--paper); position:sticky; top:0; z-index:10}
+  .nav{display:flex; align-items:center; gap:24px; padding-block:14px; flex-wrap:wrap}
+  .brand{font-family:"Fraunces", Georgia, serif; font-weight:650; font-size:1.3rem; color:var(--ink); text-decoration:none; letter-spacing:-.01em; display:flex; align-items:center; gap:10px}
+  .brand svg{flex:none}
+  .nav ul{display:flex; gap:20px; list-style:none; margin:0; padding:0; flex-wrap:wrap}
+  .nav ul a{color:var(--ink-soft); text-decoration:none; font-weight:500; font-size:.95rem}
+  .nav ul a:hover{color:var(--ink)}
+  .nav .cta{margin-left:auto}
+  .btn{
+    display:inline-block; border-radius:999px; padding:.68em 1.4em; font-weight:700; font-size:.95rem;
+    text-decoration:none; border:1.5px solid transparent; cursor:pointer; font-family:inherit;
+  }
+  .btn-ball{background:var(--ball); color:var(--ball-ink)}
+  .btn-ball:hover{filter:brightness(1.05)}
+  .btn-ghost{border-color:var(--line); color:var(--ink); background:transparent}
+  .btn-ghost:hover{border-color:var(--ink-soft)}
+
+  /* ---------- hero ---------- */
+  .hero{padding-block:64px 48px}
+  .hero-grid{display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:48px; align-items:center}
+  .hero h1{font-size:clamp(2.4rem, 5.2vw, 4rem); letter-spacing:-.015em}
+  .hero h1 em{font-style:italic; font-weight:500; color:var(--ball)}
+  .hero p.lede{font-size:1.15rem; color:var(--ink-soft); max-width:34em; margin:20px 0 28px}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; align-items:center}
+  .hero-note{font-family:"IBM Plex Mono", monospace; font-size:.78rem; color:var(--ink-soft); margin-top:14px}
+
+  /* ---------- photo slots (drop-in frames, no stock dogs) ---------- */
+  .photo{
+    position:relative; border-radius:18px; overflow:hidden;
+    background:
+      repeating-linear-gradient(-45deg, transparent 0 14px, color-mix(in srgb, var(--green) 7%, transparent) 14px 15px),
+      var(--frame);
+    border:1.5px dashed color-mix(in srgb, var(--green) 45%, var(--line));
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    max-width:100%;
+  }
+  .photo .tag{
+    padding:18px 22px; max-width:26em;
+  }
+  .photo .tag b{
+    display:block; font-family:"IBM Plex Mono", monospace; font-size:.7rem; font-weight:500;
+    letter-spacing:.14em; text-transform:uppercase; color:var(--green); margin-bottom:6px;
+  }
+  .photo .tag span{font-size:.9rem; color:var(--ink-soft); display:block; line-height:1.45}
+  .ratio-45{aspect-ratio:4/5}
+  .ratio-32{aspect-ratio:3/2}
+  .ratio-11{aspect-ratio:1/1}
+  .ratio-219{aspect-ratio:21/9}
+
+  /* ---------- ticker ---------- */
+  .ticker{background:#F2C230; color:#173B2B; overflow:hidden; padding-block:10px; border-block:1px solid #DCA916}
+  :root[data-theme="dark"] .ticker{color:#12211A; background:var(--ball)}
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .ticker{color:#12211A; background:var(--ball)} }
+  .ticker-track{display:flex; gap:0; white-space:nowrap; width:max-content; animation:tick 28s linear infinite}
+  .ticker span{font-family:"IBM Plex Mono", monospace; font-size:.78rem; letter-spacing:.16em; text-transform:uppercase; padding-inline:1.4em}
+  @keyframes tick{to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion: reduce){ .ticker-track{animation:none} }
+
+  /* ---------- sections ---------- */
+  section{padding-block:72px}
+  .sect-head{max-width:38em; margin-bottom:40px}
+  .sect-head h2{font-size:clamp(1.7rem, 3.4vw, 2.4rem); margin-top:10px}
+  .sect-head p{color:var(--ink-soft); margin:14px 0 0}
+  .alt{background:var(--paper-2); border-block:1px solid var(--line)}
+
+  /* how it works */
+  .steps{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:20px}
+  .step{background:var(--card); border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:var(--shadow)}
+  .step .num{
+    font-family:"Fraunces", Georgia, serif; font-weight:650; font-size:1.05rem;
+    background:var(--ball); color:var(--ball-ink); width:2.1em; height:2.1em; border-radius:999px;
+    display:flex; align-items:center; justify-content:center; margin-bottom:16px;
+  }
+  .step h3{font-size:1.2rem; margin-bottom:8px}
+  .step p{color:var(--ink-soft); margin:0; font-size:.97rem}
+
+  /* yard gallery */
+  .gallery{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:16px}
+  .gallery .photo:first-child{grid-column:span 2}
+
+  /* menu */
+  .menu-grid{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:20px 40px}
+  .menu-item{display:flex; justify-content:space-between; gap:16px; align-items:baseline; border-bottom:1px solid var(--line); padding-block:12px}
+  .menu-item .name{font-weight:700}
+  .menu-item .desc{color:var(--ink-soft); font-size:.92rem; display:block; margin-top:2px; font-weight:400}
+  .menu-item .who{
+    flex:none; font-family:"IBM Plex Mono", monospace; font-size:.68rem; letter-spacing:.12em; text-transform:uppercase;
+    border:1px solid var(--line); border-radius:999px; padding:.3em .8em; color:var(--ink-soft);
+  }
+  .menu-item .who.pup{border-color:color-mix(in srgb, var(--ball) 70%, var(--line)); color:var(--green); font-weight:500}
+  .menu-foot{margin-top:28px; display:flex; gap:14px; flex-wrap:wrap; align-items:center}
+  .menu-foot .fine{font-size:.9rem; color:var(--ink-soft)}
+
+  /* pricing */
+  .plans{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:20px; align-items:stretch}
+  .plan{background:var(--card); border:1px solid var(--line); border-radius:18px; padding:28px; display:flex; flex-direction:column; gap:6px}
+  .plan.featured{border:2px solid var(--ball); box-shadow:var(--shadow); position:relative}
+  .plan.featured::after{
+    content:"Most popular"; position:absolute; top:-12px; left:24px;
+    background:var(--ball); color:var(--ball-ink); font-family:"IBM Plex Mono", monospace;
+    font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; font-weight:500;
+    padding:.35em .9em; border-radius:999px;
+  }
+  .plan .plan-name{font-weight:700; font-size:1.05rem}
+  .plan .price{font-family:"Fraunces", Georgia, serif; font-weight:650; font-size:2.6rem; letter-spacing:-.02em; font-variant-numeric:tabular-nums}
+  .plan .price small{font-family:"Hanken Grotesk", sans-serif; font-weight:500; font-size:.95rem; color:var(--ink-soft); letter-spacing:0}
+  .plan p{color:var(--ink-soft); font-size:.95rem; margin:0 0 18px}
+  .plan .btn{margin-top:auto; text-align:center}
+  .vax{
+    margin-top:36px; background:var(--card); border:1px solid var(--line); border-radius:18px; padding:24px 28px;
+    display:flex; gap:24px; align-items:flex-start; flex-wrap:wrap;
+  }
+  .vax h3{font-size:1.05rem}
+  .vax ul{margin:8px 0 0; padding:0; list-style:none; display:flex; gap:10px; flex-wrap:wrap}
+  .vax li{
+    font-family:"IBM Plex Mono", monospace; font-size:.75rem; letter-spacing:.06em;
+    border:1px solid var(--line); border-radius:999px; padding:.4em 1em; color:var(--ink-soft);
+  }
+  .vax p{color:var(--ink-soft); font-size:.92rem; margin:8px 0 0; max-width:42em}
+
+  /* hours & visit */
+  .visit-grid{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:48px; align-items:start}
+  table.hours{border-collapse:collapse; width:100%; font-family:"IBM Plex Mono", monospace; font-size:.9rem}
+  table.hours td{padding:.65em 0; border-bottom:1px solid var(--line)}
+  table.hours td:last-child{text-align:right; font-variant-numeric:tabular-nums}
+  .addr{font-style:normal; line-height:1.9}
+  .addr .big{font-family:"Fraunces", Georgia, serif; font-weight:650; font-size:1.5rem; display:block; margin-bottom:6px}
+  .addr a{text-decoration:none; font-weight:500}
+
+  /* footer */
+  footer{background:var(--green); color:#EAF0E4; padding-block:56px; margin-top:0}
+  :root[data-theme="dark"] footer{background:var(--paper-2); border-top:1px solid var(--line)}
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) footer{background:var(--paper-2); border-top:1px solid var(--line)} }
+  footer .wrap{display:flex; justify-content:space-between; gap:32px; flex-wrap:wrap; align-items:flex-start}
+  footer .fbrand{font-family:"Fraunces", Georgia, serif; font-weight:650; font-size:1.5rem}
+  footer p{margin:8px 0 0; color:color-mix(in srgb, currentColor 75%, transparent); max-width:26em; font-size:.95rem}
+  footer ul{list-style:none; margin:0; padding:0; display:flex; gap:22px; flex-wrap:wrap}
+  footer a{color:inherit; text-decoration:none; font-weight:500}
+  footer a:hover{text-decoration:underline}
+  footer .legal{font-family:"IBM Plex Mono", monospace; font-size:.72rem; letter-spacing:.08em; margin-top:26px; color:color-mix(in srgb, currentColor 60%, transparent)}
+
+  /* responsive */
+  @media (max-width: 860px){
+    .hero-grid,.visit-grid{grid-template-columns:1fr}
+    .steps,.plans{grid-template-columns:1fr}
+    .gallery{grid-template-columns:1fr 1fr}
+    .gallery .photo:first-child{grid-column:span 2}
+    .menu-grid{grid-template-columns:1fr}
+    section{padding-block:56px}
+    .hero{padding-block:44px 36px}
+  }
+</style>
+
+
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="The Dog House NOLA home">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true">
+        <path d="M13 2 L24 11 L24 24 L2 24 L2 11 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <circle cx="13" cy="16" r="3.4" fill="#D95336"/>
+      </svg>
+      The Dog House
+    </a>
+    <ul>
+      <li><a href="#yard">The Yard</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#membership">Membership</a></li>
+      <li><a href="#visit">Hours &amp; Visit</a></li>
+    </ul>
+    <span class="cta"><a class="btn btn-ball" href="#membership">Register your pup</a></span>
+  </div>
+</header>
+
+<section class="hero wrap" id="top">
+  <div class="hero-grid">
+    <div>
+      <span class="eyebrow">Mid-City &middot; New Orleans</span>
+      <h1 style="margin-top:14px">The bar where <em>your dog</em> is a regular.</h1>
+      <p class="lede">An off-leash yard, craft cocktails, and pub grub for both ends of the leash. Registered pups play free-range while you take a seat, order a round, and watch the zoomies from the good side of the fence.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-ball" href="#membership">Register your pup — $5 day pass</a>
+        <a class="btn btn-ghost" href="#menu">See the menu</a>
+      </div>
+      <p class="hero-note">2736 Banks St &middot; Open 7 days &middot; Dogs welcome in the bar without registration</p>
+    </div>
+    <div class="photo ratio-45">
+      <div class="tag">
+        <b>Your photo &middot; hero</b>
+        <span>The golden-retriever kiss photo you sent goes here — dog mid-lick, coral chair, turf behind. It's warm, funny, and instantly says what this place is. Crop vertical (4:5).</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Off-leash yard</span><span>&#9679;</span><span>Cocktails &amp; mocktails</span><span>&#9679;</span><span>Pizza for the pups</span><span>&#9679;</span><span>Rotating beers</span><span>&#9679;</span><span>Mid-City, New Orleans</span><span>&#9679;</span>
+    <span>Off-leash yard</span><span>&#9679;</span><span>Cocktails &amp; mocktails</span><span>&#9679;</span><span>Pizza for the pups</span><span>&#9679;</span><span>Rotating beers</span><span>&#9679;</span><span>Mid-City, New Orleans</span><span>&#9679;</span>
+  </div>
+</div>
+
+<section class="wrap" id="how">
+  <div class="sect-head">
+    <span class="eyebrow">How it works</span>
+    <h2>Three steps between your dog and the yard.</h2>
+    <p>Every dog in the yard is vetted, vaccinated, and friendly — that's the whole point. Registration takes a few minutes online and you only do it once.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="num">1</div>
+      <h3>Register online</h3>
+      <p>Tell us about your pup and how they do with other dogs. Takes about five minutes — do it before you come or from the bar.</p>
+    </div>
+    <div class="step">
+      <div class="num">2</div>
+      <h3>We check vaccines</h3>
+      <p>Upload your dog's vaccination records. A human on our team reviews every one before your pup is cleared for the yard.</p>
+    </div>
+    <div class="step">
+      <div class="num">3</div>
+      <h3>Come play</h3>
+      <p>Grab a day pass or membership, unclip the leash, and order yourself something cold. We'll handle the rest.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="yard">
+  <div class="wrap">
+    <div class="sect-head">
+      <span class="eyebrow">The Yard</span>
+      <h2>Fenced, turfed, and built for zoomies.</h2>
+      <p>A safe, self-contained off-leash park with the bar right alongside — so the humans never have to choose between happy hour and the dog park again.</p>
+    </div>
+    <div class="gallery">
+      <div class="photo ratio-32">
+        <div class="tag">
+          <b>Your photo &middot; wide</b>
+          <span>Your yard-wide shot goes here — yellow pergola overhead, murals down the right, dachshund trotting the turf, people mid-conversation. This one sells the whole experience.</span>
+        </div>
+      </div>
+      <div class="photo ratio-45">
+        <div class="tag">
+          <b>Your photo &middot; tall</b>
+          <span>A close crop: one dog's face, tongue out, mid-grin. The kind of photo people send their group chat.</span>
+        </div>
+      </div>
+      <div class="photo ratio-11">
+        <div class="tag">
+          <b>Your photo &middot; square</b>
+          <span>Humans having fun: friends clinking glasses at a table, a dog photobombing if you can get it.</span>
+        </div>
+      </div>
+      <div class="photo ratio-11">
+        <div class="tag">
+          <b>Your photo &middot; square</b>
+          <span>Your cocktail close-up goes here — the black-salt-rimmed glass with the dried apple garnish. Crop square, keep the garnish centered.</span>
+        </div>
+      </div>
+      <div class="photo ratio-11">
+        <div class="tag">
+          <b>Your photo &middot; square</b>
+          <span>Two dogs playing — the joyful, slightly chaotic action shot.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="menu">
+  <div class="sect-head">
+    <span class="eyebrow">Eat &amp; drink</span>
+    <h2>A real bar. With a kids' menu for dogs.</h2>
+    <p>Craft cocktails and mocktails, rotating local beers, and pub grub worth staying for — plus a menu just for the pups.</p>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-item">
+      <span class="name">House cocktails<span class="desc">Specially-crafted, seasonal, and strong enough to earn the walk over.</span></span>
+      <span class="who">Humans</span>
+    </div>
+    <div class="menu-item">
+      <span class="name">Mocktails<span class="desc">Same craft, zero proof — for designated dog-walkers.</span></span>
+      <span class="who">Humans</span>
+    </div>
+    <div class="menu-item">
+      <span class="name">Boneless wings<span class="desc">Tossed to order. Best enjoyed out of paw's reach.</span></span>
+      <span class="who">Humans</span>
+    </div>
+    <div class="menu-item">
+      <span class="name">Sandwiches &amp; snacks<span class="desc">Pub grub for grazing through an afternoon in the yard.</span></span>
+      <span class="who">Humans</span>
+    </div>
+    <div class="menu-item">
+      <span class="name">Pizza for the pups<span class="desc">Dog-safe and disturbingly popular. Yes, you can sing happy birthday.</span></span>
+      <span class="who pup">Pups</span>
+    </div>
+    <div class="menu-item">
+      <span class="name">Rotating beers<span class="desc">A changing lineup with local favorites always in the mix.</span></span>
+      <span class="who">Humans</span>
+    </div>
+  </div>
+  <div class="menu-foot">
+    <a class="btn btn-ghost" href="https://order.toasttab.com/online/the-dog-house-nola">Order ahead on Toast</a>
+    <span class="fine">Full menu at the bar — this is just the greatest hits.</span>
+  </div>
+</section>
+
+<section class="alt" id="membership">
+  <div class="wrap">
+    <div class="sect-head">
+      <span class="eyebrow">Membership</span>
+      <h2>Cheaper than a round of drinks.</h2>
+      <p>Anyone can sit in the bar with their dog on-leash. Yard access is for registered members — pick whatever fits how often your pup wants to come. (Spoiler: it's daily.)</p>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <span class="plan-name">Day Pass</span>
+        <span class="price">$5<small> / 24 hours</small></span>
+        <p>Perfect for a first visit or out-of-town guests. Good for a full 24 hours.</p>
+        <a class="btn btn-ghost" href="#membership">Get a day pass</a>
+      </div>
+      <div class="plan featured">
+        <span class="plan-name">Monthly</span>
+        <span class="price">$20<small> / month</small></span>
+        <p>Unlimited yard time all month. Pays for itself by the fourth visit.</p>
+        <a class="btn btn-ball" href="#membership">Go monthly</a>
+      </div>
+      <div class="plan">
+        <span class="plan-name">Annual</span>
+        <span class="price">$150<small> / year</small></span>
+        <p>For the true regulars. Two months free versus monthly.</p>
+        <a class="btn btn-ghost" href="#membership">Go annual</a>
+      </div>
+    </div>
+    <div class="vax">
+      <div>
+        <h3>What every yard dog needs</h3>
+        <ul>
+          <li>Rabies</li>
+          <li>Bordetella</li>
+          <li>Distemper</li>
+          <li>Leptospirosis</li>
+        </ul>
+        <p>Upload records when you register — our team manually verifies every dog before their first play session, so you know everyone in the yard is current on shots and good with other dogs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="visit">
+  <div class="visit-grid">
+    <div>
+      <span class="eyebrow">Hours &amp; Visit</span>
+      <h2 style="margin-top:10px; font-size:clamp(1.7rem,3.4vw,2.4rem)">Find us on Banks Street.</h2>
+      <address class="addr" style="margin-top:22px">
+        <span class="big">2736 Banks St, New Orleans, LA 70119</span>
+        <a href="tel:+15042097263">(504) 209-7263</a><br>
+        <a href="mailto:woof@doghousenola.com">woof@doghousenola.com</a><br>
+        <a href="https://www.instagram.com/thedoghouse.nola/">@thedoghouse.nola</a>
+      </address>
+    </div>
+    <div>
+      <table class="hours" aria-label="Opening hours">
+        <tr><td>Monday – Thursday</td><td>4:00 PM – 9:00 PM</td></tr>
+        <tr><td>Friday – Saturday</td><td>11:00 AM – 10:00 PM</td></tr>
+        <tr><td>Sunday</td><td>11:00 AM – 9:00 PM</td></tr>
+      </table>
+      <div class="photo ratio-32" style="margin-top:20px">
+        <div class="tag">
+          <b>Your photo &middot; storefront</b>
+          <span>The exterior on Banks St — signage readable, ideally at dusk with lights on, so people recognize it when they arrive.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="fbrand">The Dog House</div>
+      <p>New Orleans' bar for dogs and the people who love them. Off-leash yard, craft cocktails, and pub grub in Mid-City.</p>
+      <p class="legal">&copy; 2026 The Dog House NOLA &middot; 2736 Banks St, New Orleans, LA</p>
+    </div>
+    <ul>
+      <li><a href="#yard">The Yard</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#membership">Membership</a></li>
+      <li><a href="#visit">Hours</a></li>
+      <li><a href="#top">FAQ</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
